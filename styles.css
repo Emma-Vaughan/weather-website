@@ -1,0 +1,14 @@
+h1 {
+  color: red;
+}
+
+body {
+  width: max-content;
+  margin: auto;
+  padding-top: 5em;
+}
+
+.search,
+.result {
+  text-align: center;
+}
