@@ -1,14 +1,78 @@
 h1 {
-  color: red;
+  font-family: "Newsreader", serif;
+  font-size: 6em;
+  color: white;
 }
 
 body {
-  width: max-content;
   margin: auto;
-  padding-top: 5em;
+  padding-top: 6em;
+  background-image: linear-gradient(white, #000080);
 }
 
-.search,
+.top,
 .result {
   text-align: center;
+  font-family: "Newsreader", serif;
+}
+
+#input {
+  font-size: 1.5em;
+  border-style: none;
+  border-color: #5cabff;
+  text-align: center;
+  border-radius: 0.3em;
+  color: black;
+  margin: 2% 0 2% 3%;
+}
+
+.searchBox {
+  margin: auto;
+}
+
+#btn {
+  position: relative;
+  right: 2.5em;
+  background-color: white;
+  border: none;
+  outline: none;
+}
+
+#searchIcon {
+  font-size: 1.3em;
+  color: black;
+  padding: 5%;
+  cursor: pointer;
+}
+
+#cityName {
+  font-size: 4em;
+  font-family: "Newsreader", serif;
+}
+
+#cityName,
+.weatherText,
+.temp {
+  color: white;
+}
+
+.weatherText,
+.temp {
+  font-size: 1.5em;
+}
+
+#changeIcon {
+  color: white;
+  padding: 2% 0;
+}
+
+#switch {
+  visibility: hidden;
+  margin-top: 7em;
+}
+
+.switchText {
+  color: white;
+  font-size: 0.8em;
+  vertical-align: baseline;
 }

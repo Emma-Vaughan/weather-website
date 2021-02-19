@@ -2,17 +2,35 @@
   <head>
     <meta charset="utf-8" />
     <title>What's the Weather</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" type="text/css" href="./styles.css" />
-    <link src="https://use.fontawesome.com/b862f687f9.js" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
   </head>
   <body>
-    <div class="search">
-      <h1>What's the Weather in...</h1>
-      <input type="text" name="location" id="input" placeholder="type city" />
-      <button type="submit" id="btn" onClick="submit()">Go!</button>
+    <div class="top">
+      <h1>What's the weather <br />like in...</h1>
+      <div class="searchBox">
+        <input type="text" name="location" id="input" placeholder="city" />
+        <button type="submit" id="btn" onClick="submit()">
+          <i class="fas fa-search" id="searchIcon"></i>
+        </button>
+      </div>
     </div>
     <div class="result">
+      <div id="cityName"></div>
       <h2 class="weatherText"></h2>
+      <div id="changeIcon"></div>
       <h3 class="temp"></h3>
     </div>
   </body>
