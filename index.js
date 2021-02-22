@@ -1,3 +1,9 @@
+let location1;
+let temp;
+let metric = "units=metric";
+let imperial = "units=imperial";
+let units = metric;
+
 document.getElementById("input").addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     document.getElementById("btn").click();
@@ -5,12 +11,14 @@ document.getElementById("input").addEventListener("keyup", function (event) {
 });
 
 function submit() {
-  const location = document.getElementById("input").value;
+  location1 = document.getElementById("input").value;
 
   fetch(
     "http://api.openweathermap.org/data/2.5/weather?q=" +
-      location +
-      "&units=metric&appid=574957e404a82a0a45e00398ed8c590f"
+      location1 +
+      "&" +
+      units +
+      "&appid=574957e404a82a0a45e00398ed8c590f"
   )
     .then((response) => response.json())
     .then((data) => {
@@ -19,11 +27,13 @@ function submit() {
       document.querySelector("h1").style.fontSize = "2em";
 
       const weatherText = data.weather[0].main;
-      const temp = data.main.temp;
+      temp = data.main.temp;
       const city = data.name;
 
       document.querySelector(".weatherText").innerHTML = weatherText;
-      document.querySelector(".temp").innerHTML = temp + " degrees celcius";
+      const degreesText =
+        units === metric ? " degrees celcius" : " degrees fahrenheit";
+      document.querySelector(".temp").innerHTML = temp + degreesText;
       document.getElementById("cityName").innerHTML = city;
       document.getElementById("input").value = "";
 
@@ -64,4 +74,43 @@ function submit() {
 
       document.getElementById("switch").style.visibility = "visible";
     });
+}
+
+function changeTemp() {
+  let tempText = document.getElementById("switchText").innerHTML;
+
+  if (tempText.toLowerCase().includes("fahrenheit")) {
+    units = imperial;
+    fetch(
+      "http://api.openweathermap.org/data/2.5/weather?q=" +
+        location1 +
+        "&" +
+        units +
+        "&appid=574957e404a82a0a45e00398ed8c590f"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        temp = data.main.temp;
+        document.querySelector(".temp").innerHTML =
+          temp + " degrees fahrenheit";
+        document.getElementById("switchText").innerHTML =
+          "Switch temp to celcius";
+      });
+  } else {
+    units = metric;
+    fetch(
+      "http://api.openweathermap.org/data/2.5/weather?q=" +
+        location1 +
+        "&" +
+        units +
+        "&appid=574957e404a82a0a45e00398ed8c590f"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        temp = data.main.temp;
+        document.querySelector(".temp").innerHTML = temp + " degrees celcius";
+        document.getElementById("switchText").innerHTML =
+          "Switch temp to fahrenheit";
+      });
+  }
 }

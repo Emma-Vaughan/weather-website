@@ -32,6 +32,22 @@
       <h2 class="weatherText"></h2>
       <div id="changeIcon"></div>
       <h3 class="temp"></h3>
+      <div id="switch">
+        <div class="custom-control custom-switch">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="customSwitch1"
+          />
+          <label
+            class="custom-control-label"
+            id="toggle"
+            onClick="changeTemp()"
+            for="customSwitch1"
+          ></label>
+        </div>
+        <p id="switchText">Switch temp to fahrenheit</p>
+      </div>
     </div>
   </body>
 

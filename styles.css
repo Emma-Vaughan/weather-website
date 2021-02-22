@@ -71,7 +71,7 @@ body {
   margin-top: 7em;
 }
 
-.switchText {
+#switchText {
   color: white;
   font-size: 0.8em;
   vertical-align: baseline;
