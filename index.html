@@ -18,10 +18,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
   </head>
   <body>
+    <h2 id="alertText">Sorry, I don't recognise that city</h2>
     <div class="top">
       <h1>What's the weather <br />like in...</h1>
       <div class="searchBox">
-        <input type="text" name="location" id="input" placeholder="city" />
+        <input
+          autocomplete="off"
+          type="text"
+          name="location"
+          id="input"
+          placeholder="city"
+        />
         <button type="submit" id="btn" onClick="submit()">
           <i class="fas fa-search" id="searchIcon"></i>
         </button>
@@ -48,6 +55,9 @@
         </div>
         <p id="switchText">Switch temp to fahrenheit</p>
       </div>
+    </div>
+    <div>
+      <a href="#" onClick="searchAgain()" class="searchAgain">Search again?</a>
     </div>
   </body>
 

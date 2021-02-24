@@ -12,6 +12,7 @@ document.getElementById("input").addEventListener("keyup", function (event) {
 
 function submit() {
   location1 = document.getElementById("input").value;
+  document.getElementById("alertText").style.display = "none";
 
   fetch(
     "http://api.openweathermap.org/data/2.5/weather?q=" +
@@ -23,6 +24,13 @@ function submit() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+
+      if (data.cod === "404") {
+        document.getElementById("alertText").style.display = "inherit";
+        document.querySelector(".result").style.display = "none";
+        document.querySelector(".searchAgain").style.marginTop = "3em";
+        document.getElementById("input").value = "";
+      }
 
       document.querySelector("h1").style.fontSize = "2em";
 
@@ -61,6 +69,9 @@ function submit() {
       } else if (weatherText.toLowerCase().includes("snow")) {
         document.getElementById("changeIcon").innerHTML =
           "<i class='fas fa-snowflake fa-5x'></i>";
+      } else if (weatherText.toLowerCase().includes("haze")) {
+        document.getElementById("changeIcon").innerHTML =
+          "<i class='fas fa-smog fa-5x'></i>";
       }
 
       if (
@@ -73,6 +84,10 @@ function submit() {
       }
 
       document.getElementById("switch").style.visibility = "visible";
+      document.querySelector(".top").style.display = "none";
+      document.querySelector(".result").style.display = "inherit";
+      document.querySelector(".searchAgain").style.display = "inherit";
+      document.querySelector(".searchAgain").style.fontSize = "2em";
     });
 }
 
@@ -113,4 +128,11 @@ function changeTemp() {
           "Switch temp to fahrenheit";
       });
   }
+}
+
+function searchAgain() {
+  document.querySelector(".top").style.display = "";
+  document.querySelector(".result").style.display = "none";
+  document.querySelector(".searchAgain").style.display = "none";
+  document.querySelector("#alertText").style.display = "none";
 }
