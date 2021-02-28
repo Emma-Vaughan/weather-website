@@ -79,8 +79,10 @@ function submit() {
         weatherText.toLowerCase().includes("clear")
       ) {
         document.body.style.background = "linear-gradient(#fffd79, #ffd175)";
+        document.querySelector("#toggle").classList.add("toggleColor");
       } else {
         document.body.style.background = "linear-gradient(#ffffff, #000080)";
+        document.querySelector("#toggle").classList.remove("toggleColor");
       }
 
       document.getElementById("switch").style.visibility = "visible";
