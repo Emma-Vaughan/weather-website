@@ -4,6 +4,16 @@ let metric = "units=metric";
 let imperial = "units=imperial";
 let units = metric;
 
+function fahrenheitFunc(data) {
+  let tempType1 = units === metric ? "celcius" : "fahrenheit";
+  let tempType2 = units === imperial ? "celcius" : "fahrenheit";
+
+  temp = data.main.temp;
+  document.querySelector(".temp").innerHTML = temp + " degrees " + tempType1;
+  document.getElementById("switchText").innerHTML =
+    "Switch temp to " + tempType2;
+}
+
 document.getElementById("input").addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     document.getElementById("btn").click();
@@ -69,7 +79,10 @@ function submit() {
       } else if (weatherText.toLowerCase().includes("snow")) {
         document.getElementById("changeIcon").innerHTML =
           "<i class='fas fa-snowflake fa-5x'></i>";
-      } else if (weatherText.toLowerCase().includes("haze")) {
+      } else if (
+        weatherText.toLowerCase().includes("haze") ||
+        weatherText.toLowerCase().includes("fog")
+      ) {
         document.getElementById("changeIcon").innerHTML =
           "<i class='fas fa-smog fa-5x'></i>";
       }
@@ -94,42 +107,17 @@ function submit() {
 }
 
 function changeTemp() {
-  let tempText = document.getElementById("switchText").innerHTML;
+  units = units === metric ? imperial : metric;
 
-  if (tempText.toLowerCase().includes("fahrenheit")) {
-    units = imperial;
-    fetch(
-      "http://api.openweathermap.org/data/2.5/weather?q=" +
-        location1 +
-        "&" +
-        units +
-        "&appid=574957e404a82a0a45e00398ed8c590f"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        temp = data.main.temp;
-        document.querySelector(".temp").innerHTML =
-          temp + " degrees fahrenheit";
-        document.getElementById("switchText").innerHTML =
-          "Switch temp to celcius";
-      });
-  } else {
-    units = metric;
-    fetch(
-      "http://api.openweathermap.org/data/2.5/weather?q=" +
-        location1 +
-        "&" +
-        units +
-        "&appid=574957e404a82a0a45e00398ed8c590f"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        temp = data.main.temp;
-        document.querySelector(".temp").innerHTML = temp + " degrees celcius";
-        document.getElementById("switchText").innerHTML =
-          "Switch temp to fahrenheit";
-      });
-  }
+  fetch(
+    "http://api.openweathermap.org/data/2.5/weather?q=" +
+      location1 +
+      "&" +
+      units +
+      "&appid=574957e404a82a0a45e00398ed8c590f"
+  )
+    .then((response) => response.json())
+    .then(fahrenheitFunc);
 }
 
 function searchAgain() {
