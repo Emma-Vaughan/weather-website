@@ -54,41 +54,43 @@ function mainSubmit(data) {
   document.getElementById("cityName").innerHTML = city;
   document.getElementById("input").value = "";
 
-  if (weatherText.toLowerCase().includes("cloud")) {
+  const weatherTextMethod = weatherText.toLowerCase();
+
+  if (weatherTextMethod.includes("cloud")) {
     document.getElementById("changeIcon").innerHTML =
       "<i class='fas fa-cloud fa-5x'></i>";
   } else if (
-    weatherText.toLowerCase().includes("thunder") ||
-    weatherText.toLowerCase().includes("lightning")
+    weatherTextMethod.includes("thunder") ||
+    weatherTextMethod.includes("lightning")
   ) {
     document.getElementById("changeIcon").innerHTML =
       "<i class='fas fa-bolt fa-5x'></i>";
   } else if (
-    weatherText.toLowerCase().includes("sun") ||
-    weatherText.toLowerCase().includes("clear")
+    weatherTextMethod.includes("sun") ||
+    weatherTextMethod.includes("clear")
   ) {
     document.getElementById("changeIcon").innerHTML =
       "<i class='fas fa-sun fa-5x'></i>";
   } else if (
-    weatherText.toLowerCase().includes("rain") ||
-    weatherText.toLowerCase().includes("drizzle")
+    weatherTextMethod.includes("rain") ||
+    weatherTextMethod.includes("drizzle")
   ) {
     document.getElementById("changeIcon").innerHTML =
       "<i class='fas fa-umbrella fa-5x'></i>";
-  } else if (weatherText.toLowerCase().includes("snow")) {
+  } else if (weatherTextMethod.includes("snow")) {
     document.getElementById("changeIcon").innerHTML =
       "<i class='fas fa-snowflake fa-5x'></i>";
   } else if (
-    weatherText.toLowerCase().includes("haze") ||
-    weatherText.toLowerCase().includes("fog")
+    weatherTextMethod.includes("haze") ||
+    weatherTextMethod.includes("fog")
   ) {
     document.getElementById("changeIcon").innerHTML =
       "<i class='fas fa-smog fa-5x'></i>";
   }
 
   if (
-    weatherText.toLowerCase().includes("sun") ||
-    weatherText.toLowerCase().includes("clear")
+    weatherTextMethod.includes("sun") ||
+    weatherTextMethod.includes("clear")
   ) {
     document.body.style.background = "linear-gradient(#fffd79, #ffd175)";
     document.querySelector("#toggle").classList.add("toggleColor");
