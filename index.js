@@ -1,7 +1,7 @@
 let location1;
 let temp;
-let metric = "units=metric";
-let imperial = "units=imperial";
+let metric = "metric";
+let imperial = "imperial";
 let units = metric;
 
 function fahrenheitFunc(data) {
@@ -28,6 +28,7 @@ function submit() {
     "http://api.openweathermap.org/data/2.5/weather?q=" +
       location1 +
       "&" +
+      "units=" +
       units +
       "&appid=574957e404a82a0a45e00398ed8c590f"
   )
@@ -113,6 +114,7 @@ function changeTemp() {
     "http://api.openweathermap.org/data/2.5/weather?q=" +
       location1 +
       "&" +
+      "units=" +
       units +
       "&appid=574957e404a82a0a45e00398ed8c590f"
   )
