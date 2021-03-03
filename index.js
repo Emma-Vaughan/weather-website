@@ -109,7 +109,7 @@ function mainSubmit(data) {
 
 function submit() {
   location1 = document.getElementById("input").value;
-  document.querySelector("#alertText").classList.add = "hidden";
+  document.querySelector("#alertText").classList.add("hidden");
   callWeather(location1, mainSubmit);
 }
 
@@ -122,5 +122,5 @@ function searchAgain() {
   document.querySelector(".top").style.display = "";
   document.querySelector(".result").style.display = "none";
   document.querySelector(".searchAgain").style.display = "none";
-  document.querySelector("#alertText").classList.add = "hidden";
+  document.querySelector("#alertText").classList.add("hidden");
 }
