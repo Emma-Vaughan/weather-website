@@ -33,12 +33,16 @@ document.getElementById("input").addEventListener("keyup", function (event) {
   }
 });
 
+function clearInput() {
+  document.getElementById("input").value = "";
+}
+
 function mainSubmit(data) {
   if (data.cod === "404") {
     document.querySelector("#alertText").classList.remove("hidden");
     document.querySelector(".result").style.display = "none";
     document.querySelector(".searchAgain").style.marginTop = "3em";
-    document.getElementById("input").value = "";
+    clearInput();
   }
 
   document.querySelector("h1").style.fontSize = "2em";
@@ -52,7 +56,7 @@ function mainSubmit(data) {
     units === metric ? " degrees celcius" : " degrees fahrenheit";
   document.querySelector(".temp").innerHTML = temp + degreesText;
   document.getElementById("cityName").innerHTML = city;
-  document.getElementById("input").value = "";
+  clearInput();
 
   const weatherTextMethod = weatherText.toLowerCase();
 
