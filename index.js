@@ -102,7 +102,7 @@ function mainSubmit(data) {
   document.querySelector("#switch").classList.remove("hidden");
   document.querySelector(".top").classList.add("hidden");
   document.querySelector(".result").classList.remove("hidden");
-  document.querySelector(".searchAgain").style.display = "inherit";
+  document.querySelector(".searchAgain").classList.remove("hidden");
   document.querySelector(".searchAgain").style.fontSize = "2em";
 }
 
@@ -120,6 +120,6 @@ function changeTemp() {
 function searchAgain() {
   document.querySelector(".top").classList.remove("hidden");
   document.querySelector(".result").classList.add("hidden");
-  document.querySelector(".searchAgain").style.display = "none";
+  document.querySelector(".searchAgain").classList.add("hidden");
   document.querySelector("#alertText").classList.add("hidden");
 }
