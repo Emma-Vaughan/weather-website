@@ -99,7 +99,7 @@ function mainSubmit(data) {
     document.querySelector("#toggle").classList.remove("toggleColor");
   }
 
-  document.getElementById("switch").style.visibility = "visible";
+  document.querySelector("#switch").classList.remove("hidden");
   document.querySelector(".top").classList.add("hidden");
   document.querySelector(".result").classList.remove("hidden");
   document.querySelector(".searchAgain").style.display = "inherit";
