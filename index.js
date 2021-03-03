@@ -101,7 +101,7 @@ function mainSubmit(data) {
   }
 
   document.getElementById("switch").style.visibility = "visible";
-  document.querySelector(".top").style.display = "none";
+  document.querySelector(".top").classList.add("hidden");
   document.querySelector(".result").style.display = "inherit";
   document.querySelector(".searchAgain").style.display = "inherit";
   document.querySelector(".searchAgain").style.fontSize = "2em";
@@ -119,7 +119,7 @@ function changeTemp() {
 }
 
 function searchAgain() {
-  document.querySelector(".top").style.display = "";
+  document.querySelector(".top").classList.remove("hidden");
   document.querySelector(".result").style.display = "none";
   document.querySelector(".searchAgain").style.display = "none";
   document.querySelector("#alertText").classList.add("hidden");
