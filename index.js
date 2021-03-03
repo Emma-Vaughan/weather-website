@@ -40,7 +40,7 @@ function clearInput() {
 function mainSubmit(data) {
   if (data.cod === "404") {
     document.querySelector("#alertText").classList.remove("hidden");
-    document.querySelector(".result").style.display = "none";
+    document.querySelector(".result").classList.add("hidden");
     document.querySelector(".searchAgain").style.marginTop = "3em";
     clearInput();
   }
@@ -106,7 +106,7 @@ function mainSubmit(data) {
 
   document.getElementById("switch").style.visibility = "visible";
   document.querySelector(".top").classList.add("hidden");
-  document.querySelector(".result").style.display = "inherit";
+  document.querySelector(".result").classList.remove("hidden");
   document.querySelector(".searchAgain").style.display = "inherit";
   document.querySelector(".searchAgain").style.fontSize = "2em";
 }
@@ -124,7 +124,7 @@ function changeTemp() {
 
 function searchAgain() {
   document.querySelector(".top").classList.remove("hidden");
-  document.querySelector(".result").style.display = "none";
+  document.querySelector(".result").classList.add("hidden");
   document.querySelector(".searchAgain").style.display = "none";
   document.querySelector("#alertText").classList.add("hidden");
 }
