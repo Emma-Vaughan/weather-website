@@ -35,7 +35,7 @@ document.getElementById("input").addEventListener("keyup", function (event) {
 
 function mainSubmit(data) {
   if (data.cod === "404") {
-    document.getElementById("alertText").style.display = "inherit";
+    document.querySelector("#alertText").classList.remove("hidden");
     document.querySelector(".result").style.display = "none";
     document.querySelector(".searchAgain").style.marginTop = "3em";
     document.getElementById("input").value = "";
@@ -82,7 +82,8 @@ function mainSubmit(data) {
       "<i class='fas fa-snowflake fa-5x'></i>";
   } else if (
     weatherTextMethod.includes("haze") ||
-    weatherTextMethod.includes("fog")
+    weatherTextMethod.includes("fog") ||
+    weatherTextMethod.includes("mist")
   ) {
     document.getElementById("changeIcon").innerHTML =
       "<i class='fas fa-smog fa-5x'></i>";
@@ -108,7 +109,7 @@ function mainSubmit(data) {
 
 function submit() {
   location1 = document.getElementById("input").value;
-  document.getElementById("alertText").style.display = "none";
+  document.querySelector("#alertText").classList.add = "hidden";
   callWeather(location1, mainSubmit);
 }
 
@@ -121,5 +122,5 @@ function searchAgain() {
   document.querySelector(".top").style.display = "";
   document.querySelector(".result").style.display = "none";
   document.querySelector(".searchAgain").style.display = "none";
-  document.querySelector("#alertText").style.display = "none";
+  document.querySelector("#alertText").classList.add = "hidden";
 }

@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 h1 {
   font-family: "Newsreader", serif;
   font-size: 6em;
@@ -19,7 +23,6 @@ body {
   color: white;
   font-size: 4em;
   text-align: center;
-  display: none;
   margin-bottom: 2em;
 }
 
@@ -35,10 +38,6 @@ body {
 
 #input:focus {
   outline: none;
-}
-
-.searchBox {
-  margin: auto;
 }
 
 #btn {
