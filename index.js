@@ -59,38 +59,33 @@ function mainSubmit(data) {
   clearInput();
 
   const weatherTextMethod = weatherText.toLowerCase();
+  const icon = document.getElementById("changeIcon");
 
   if (weatherTextMethod.includes("cloud")) {
-    document.getElementById("changeIcon").innerHTML =
-      "<i class='fas fa-cloud fa-5x'></i>";
+    icon.innerHTML = "<i class='fas fa-cloud fa-5x'></i>";
   } else if (
     weatherTextMethod.includes("thunder") ||
     weatherTextMethod.includes("lightning")
   ) {
-    document.getElementById("changeIcon").innerHTML =
-      "<i class='fas fa-bolt fa-5x'></i>";
+    icon.innerHTML = "<i class='fas fa-bolt fa-5x'></i>";
   } else if (
     weatherTextMethod.includes("sun") ||
     weatherTextMethod.includes("clear")
   ) {
-    document.getElementById("changeIcon").innerHTML =
-      "<i class='fas fa-sun fa-5x'></i>";
+    icon.innerHTML = "<i class='fas fa-sun fa-5x'></i>";
   } else if (
     weatherTextMethod.includes("rain") ||
     weatherTextMethod.includes("drizzle")
   ) {
-    document.getElementById("changeIcon").innerHTML =
-      "<i class='fas fa-umbrella fa-5x'></i>";
+    icon.innerHTML = "<i class='fas fa-umbrella fa-5x'></i>";
   } else if (weatherTextMethod.includes("snow")) {
-    document.getElementById("changeIcon").innerHTML =
-      "<i class='fas fa-snowflake fa-5x'></i>";
+    icon.innerHTML = "<i class='fas fa-snowflake fa-5x'></i>";
   } else if (
     weatherTextMethod.includes("haze") ||
     weatherTextMethod.includes("fog") ||
     weatherTextMethod.includes("mist")
   ) {
-    document.getElementById("changeIcon").innerHTML =
-      "<i class='fas fa-smog fa-5x'></i>";
+    icon.innerHTML = "<i class='fas fa-smog fa-5x'></i>";
   }
 
   if (
