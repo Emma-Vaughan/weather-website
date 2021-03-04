@@ -11,7 +11,8 @@ function callWeather(location1, callbackFunction) {
       "&" +
       "units=" +
       units +
-      "&appid=574957e404a82a0a45e00398ed8c590f"
+      "&appid=" +
+      key
   )
     .then((response) => response.json())
     .then(callbackFunction);
